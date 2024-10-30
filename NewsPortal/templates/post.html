@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% load cache %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим сам пост, идентификатор которого был передан в url -->
+{% block content %}
+    {% cache 300 "detail" %}
+        <h1>{{ post.title|censor }}</h1>
+        <h4>{{ post.time_create|date:'d.m.Y' }}</h4>
+        <hr>
+        <p style="font-size: 26px;">{{ post.article_text|censor }}</p>
+    {% endcache %}
+{% endblock content %}

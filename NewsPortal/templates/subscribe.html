@@ -1,0 +1,8 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<h2>Здравствуй, {{user_name}}. Вышла новая {{ post_link }} статья в твоём любимом разделе!</h2>
+<div>Текст статьи: {{ post.article_text }}</div>
+
+
+{% endblock %}
